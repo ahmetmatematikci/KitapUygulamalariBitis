@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:text="Hangisi Hayvandır?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView"
+        android:textSize="40sp" />
+
+    <Button
+        android:text="Cevapla"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="123dp"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/button3" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true">
+
+    <RadioButton
+        android:text="Aslan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="17dp"
+        android:id="@+id/radioButton" />
+
+    <RadioButton
+        android:text="Kaplan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButton"
+        android:layout_alignEnd="@+id/radioButton"
+        android:id="@+id/radioButton2" />
+
+    <RadioButton
+        android:text="Çilek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButton2"
+        android:layout_alignEnd="@+id/radioButton2"
+        android:id="@+id/radioButton3" />
+
+    <RadioButton
+        android:text="Maymun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButton3"
+        android:layout_alignEnd="@+id/radioButton3"
+        android:id="@+id/radioButton4" />
+    </RadioGroup>
+</RelativeLayout>
