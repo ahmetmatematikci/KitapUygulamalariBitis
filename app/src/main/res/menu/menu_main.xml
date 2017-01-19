@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:title="Bize Ulaşın"
         android:id="@+id/ulasid"
         android:numericShortcut="1"
-        android:alphabeticShortcut="b" ></item>
+        android:alphabeticShortcut="b"
+        app:showAsAction="always" ></item>
 
 
     <item
         android:title="Ayarlar"
         android:id="@+id/ayarlarid"
         android:numericShortcut="s"
-        android:alphabeticShortcut="2" ></item>
+        android:icon="@mipmap/first"
+        android:alphabeticShortcut="2"
+        app:showAsAction= "always"></item>
 
     <item
         android:title="Çıkış"
         android:id="@+id/cikis"
         android:alphabeticShortcut="c"
         android:numericShortcut="3" ></item>
+
+    <item
+        android:title="menu 4"
+        android:id="@+id/cikis"
+        android:alphabeticShortcut="x"
+        android:numericShortcut="4" ></item>
+
+    <item
+        android:title="menu 5"
+        android:id="@+id/cikis"
+        android:alphabeticShortcut="y"
+        android:numericShortcut="5" ></item>
 
 
 
