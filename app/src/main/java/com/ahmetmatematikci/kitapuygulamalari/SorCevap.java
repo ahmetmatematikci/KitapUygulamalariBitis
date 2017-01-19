@@ -1,6 +1,8 @@
 package com.ahmetmatematikci.kitapuygulamalari;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,6 +46,10 @@ public class SorCevap extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
+        sharedPrefenceAl();
+
+
         if (r1.isChecked()){
             Toast.makeText(this,"Yanlış Cevap", Toast.LENGTH_LONG).show();
         } else if(r2.isChecked()) {
@@ -57,6 +63,14 @@ public class SorCevap extends Activity implements View.OnClickListener {
             Toast.makeText(this,"Doğru Cevap", Toast.LENGTH_LONG).show();
 
         }
+
+    }
+
+    private void sharedPrefenceAl() {
+        SharedPreferences sP = getSharedPreferences("kullaniciverileri", Context.MODE_PRIVATE);
+       String isim = sP.getString("isim", "isme ulaşılamadı" );
+        String yas  = sP.getString("yas", "yaşa ulaşılamadı");
+        Toast.makeText(this, "isim =  " + isim  + "yas = " + yas , Toast.LENGTH_LONG).show();
 
     }
 }

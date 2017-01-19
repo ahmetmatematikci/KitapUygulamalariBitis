@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:title="Muzik"
+        android:summary="Müzik Olsun Mu"
+        android:key="keyMuzik"
+        android:defaultValue="true"></CheckBoxPreference>
+    <EditTextPreference
+        android:title="isim"
+        android:summary="Ismin ne?"
+        android:key="keyisim">
+
+    </EditTextPreference>
+
+
+</PreferenceScreen>

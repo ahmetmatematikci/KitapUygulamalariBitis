@@ -2,8 +2,11 @@ package com.ahmetmatematikci.kitapuygulamalari;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 /**
  * Created by a on 1/18/17.
@@ -16,7 +19,15 @@ public class GirisEkrani extends Activity {
         setContentView(R.layout.girisekrani);
 
         mP= MediaPlayer.create(this,R.raw.kus);
-        mP.start();
+        SharedPreferences sP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean muzikvar = sP.getBoolean("keyMuzik", true);
+
+        if (muzikvar) {
+            mP.start();
+        }
+
+ String  isim = sP.getString("keyisim","Isim yok");
+        Toast.makeText(this, isim,Toast.LENGTH_LONG).show();
 
         Thread zamanlayici = new Thread(){
             public void run() {
