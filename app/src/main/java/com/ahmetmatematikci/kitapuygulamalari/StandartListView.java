@@ -1,7 +1,11 @@
 package com.ahmetmatematikci.kitapuygulamalari;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +18,46 @@ import android.widget.Toast;
 
 public class StandartListView  extends Activity{
     ListView liste1;
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+
+
+
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case R.id.ulasid:
+                Intent i = new Intent(StandartListView.this, ViewDegistir.class );
+                startActivity(i);
+
+                break;
+
+            case R.id.ayarlarid:
+                Intent intent = new Intent(StandartListView.this, Ayarlar.class);
+                startActivity(intent);
+
+
+                break;
+
+            case R.id.cikis:
+                finish();
+
+                break;
+
+        }
+
+
+
+        return super.onContextItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +79,9 @@ public class StandartListView  extends Activity{
 
             }
         });
+
+        registerForContextMenu(liste1);
+
 
 
 
