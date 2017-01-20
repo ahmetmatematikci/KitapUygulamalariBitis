@@ -1,6 +1,8 @@
 package com.ahmetmatematikci.kitapuygulamalari;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -48,7 +50,29 @@ public class StandartListView  extends Activity{
                 break;
 
             case R.id.cikis:
-                finish();
+                //finish();   //Direk kapatıyor
+                AlertDialog.Builder builder = new AlertDialog.Builder(StandartListView.this);
+                builder.setTitle("Çıkmak mı İstiyorsunuz");
+                builder.setMessage("Çıkmak mı istiyorsunuz");
+                builder.setCancelable(false);       //Ekranda butona basana kadar kalıyor.
+                builder.setIcon(android.R.drawable.alert_dark_frame);
+                builder.setPositiveButton("Evet İstiyorum", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        StandartListView.this.finish();
+                    }
+                });
+                builder.setNegativeButton("Vazgeç", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(StandartListView.this, "Tekrardan Hoş geldiniz", Toast.LENGTH_LONG).show();
+                        dialogInterface.dismiss();
+
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
                 break;
 
