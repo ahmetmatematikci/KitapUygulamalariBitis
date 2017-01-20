@@ -1,6 +1,7 @@
 package com.ahmetmatematikci.kitapuygulamalari;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +9,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * Created by a on 1/18/17.
@@ -27,8 +30,42 @@ public class KullaniciGirisi extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.kullanicigirisi);
 
         tanimlar();
+        dialogOlustur();
 
     }
+
+    private void dialogOlustur() {
+        final Dialog dialog = new Dialog(this);
+        dialog.setTitle("Şifreti VEr");
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setDimAmount(0.7f); //Arka planın karartma kodu
+        dialog.setContentView(R.layout.customdialog);
+        dialog.setCancelable(true);
+        dialog.show();
+        final String sifre = "sifre123";
+       final EditText et1 = (EditText)dialog.findViewById(R.id.editText7);
+       final Button bt1 = (Button)dialog.findViewById(R.id.button14);
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String kullanicininverdigi = et1.getText().toString();
+                if (sifre.equals(kullanicininverdigi)) {
+                    Toast.makeText(KullaniciGirisi.this, "Hoş Geldiniz", Toast.LENGTH_LONG).show();
+                    dialog.dismiss();
+                } else  {
+                    Toast.makeText(KullaniciGirisi.this, "Yanlış girdiniz", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+
+
+
+    }
+
+
 
     private void tanimlar() {
         et1 = (EditText)findViewById(R.id.editText);
