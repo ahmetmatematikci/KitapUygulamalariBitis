@@ -142,6 +142,33 @@
         </activity>
 
 
+        <activity android:name=".CustomListView">
+            <intent-filter>
+                <action android:name="android.intent.action.CustomListView" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Hayvan">
+            <intent-filter>
+                <action android:name="android.intent.action.Hayvan" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".HayvanAdapter">
+            <intent-filter>
+                <action android:name="android.intent.action.HayvanAdapter" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+
+
 
 
     </application>
