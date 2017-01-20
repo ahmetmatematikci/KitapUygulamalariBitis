@@ -167,6 +167,26 @@
         </activity>
 
 
+        <activity android:name=".ActivityHayatDongusu">
+            <intent-filter>
+                <action android:name="android.intent.action.ActivityHayatDongusu" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+
+        <activity android:name=".InternalHafiza">
+            <intent-filter>
+                <action android:name="android.intent.action.InternalHafiza" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+
 
 
 

@@ -14,7 +14,8 @@ import android.widget.ListView;
 public class MainActivity extends ListActivity {
 
     String[] sayfalar = {"CameraAPP", "SorCevap","KullaniciGirisi", "CustomButton","HareketAlgilayici","SharedPrefOrnek",
-            "BasitWebTarayici", "TabHostOrnek","ViewDegistir", "StandartListView","CustomListView"};
+            "BasitWebTarayici", "TabHostOrnek","ViewDegistir", "StandartListView","CustomListView","ActivityHayatDongusu",
+                "InternalHafiza" };
 
 
     @Override
