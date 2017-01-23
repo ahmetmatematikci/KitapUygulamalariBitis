@@ -2,6 +2,7 @@ package com.ahmetmatematikci.kitapuygulamalari;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -58,12 +59,72 @@ public class ExternalHafiza extends Activity  {
                         os.write(veriArrayi);
                         is.close();
                         os.close();
-                        Toast.makeText(ExternalHafiza.this, "Başarı Müziklere kaydedildi", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ExternalHafiza.this, "Müziklere başarı ile kaydedildi", Toast.LENGTH_SHORT).show();
+                        MediaScannerConnection.scanFile(ExternalHafiza.this, new String[]{file.toString()}, null, null);
+
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
+                } else if (r2.isChecked()) {
+
+                    try {
+                        externalUygunmu();
+                        String dosyaadi =  et.getText().toString() + ".jpg";
+                        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                        path.mkdir();
+                        File file = new File(path, dosyaadi);
+                        InputStream is = getResources().openRawResource(R.raw.kumkat);
+                        OutputStream os = new FileOutputStream(file);
+
+                        byte[] veriArrayi = new byte[is.available()];
+                        is.read(veriArrayi);
+                        os.write(veriArrayi);
+                        is.close();
+                        os.close();
+                        Toast.makeText(ExternalHafiza.this, "Resimlere başarı ile kaydedildi", Toast.LENGTH_SHORT).show();
+                        MediaScannerConnection.scanFile(ExternalHafiza.this, new String[]{file.toString()}, null, null);
+
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }  else if (r3.isChecked()) {
+
+                    try {
+                        externalUygunmu();
+                        String dosyaadi =  et.getText().toString() + ".txt";
+                        File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                        path.mkdir();
+                        File file = new File(path, dosyaadi);
+                        InputStream is = getResources().openRawResource(R.raw.yazi);
+                        OutputStream os = new FileOutputStream(file);
+
+                        byte[] veriArrayi = new byte[is.available()];
+                        is.read(veriArrayi);
+                        os.write(veriArrayi);
+                        is.close();
+                        os.close();
+                        Toast.makeText(ExternalHafiza.this, "Indirilenlere başarı ile kaydedildi", Toast.LENGTH_SHORT).show();
+                        MediaScannerConnection.scanFile(ExternalHafiza.this, new String[]{file.toString()}, null, null);
+
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+
+
+
+                } else {
+
+                    Toast.makeText(ExternalHafiza.this, "Bu ekranda birini seçiniz", Toast.LENGTH_SHORT).show();
+
 
                 }
             }
@@ -97,8 +158,8 @@ public class ExternalHafiza extends Activity  {
 
         rg = (RadioGroup)findViewById(R.id.radioGroup);
         r1 = (RadioButton)findViewById(R.id.radioButton8);
-        r2 = (RadioButton)findViewById(R.id.radioButton8);
-        r3 = (RadioButton)findViewById(R.id.radioButton8);
+        r2 = (RadioButton)findViewById(R.id.radioButton9);
+        r3 = (RadioButton)findViewById(R.id.radioButton10);
         bt  =(Button)findViewById(R.id.button17);
 
     }
