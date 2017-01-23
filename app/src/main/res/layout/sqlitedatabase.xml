@@ -97,4 +97,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button21" />
+
+    <Button
+        android:text="Marka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button22" />
+
+    <Button
+        android:text="Model"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button23" />
+
+    <Button
+        android:text="DEĞER"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button24" />
 </LinearLayout>

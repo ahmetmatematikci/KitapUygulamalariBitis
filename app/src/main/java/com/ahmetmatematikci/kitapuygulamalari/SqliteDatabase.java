@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class SqliteDatabase  extends Activity implements View.OnClickListener{
 
     EditText et1, et2,et3, et4;
-    Button bt1, bt2,bt3, bt4;
+    Button bt1, bt2,bt3, bt4, bt5,bt6,bt7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,9 @@ public class SqliteDatabase  extends Activity implements View.OnClickListener{
         bt2 =(Button)findViewById(R.id.button19);
         bt3 =(Button)findViewById(R.id.button20);
         bt4 =(Button)findViewById(R.id.button21);
+        bt5 =(Button)findViewById(R.id.button22);
+        bt6 =(Button)findViewById(R.id.button23);
+        bt7 =(Button)findViewById(R.id.button24);
 
         et1 = (EditText)findViewById(R.id.editText10);
         et2 = (EditText)findViewById(R.id.editText11);
@@ -45,6 +48,9 @@ public class SqliteDatabase  extends Activity implements View.OnClickListener{
         bt2.setOnClickListener(this);
         bt3.setOnClickListener(this);
         bt4.setOnClickListener(this);
+        bt5.setOnClickListener(this);
+        bt6.setOnClickListener(this);
+        bt7.setOnClickListener(this);
 
     }
 
@@ -102,7 +108,40 @@ public class SqliteDatabase  extends Activity implements View.OnClickListener{
                 dbclass.close();
                 Toast.makeText(SqliteDatabase.this,  duzenlenecek + ".  Satır Başarı ile Güncellendi", Toast.LENGTH_SHORT).show();
 
+                break;
 
+            case R.id.button22:
+                String markaid = et4.getText().toString();
+                int markid = Integer.valueOf(markaid);
+                DatabaseClass dbc = new DatabaseClass(SqliteDatabase.this);
+                dbc.open();
+               String donenmarka =  dbc.markayidondur(markid);
+                dbc.close();
+                Toast.makeText(SqliteDatabase.this,  donenmarka , Toast.LENGTH_SHORT).show();
+
+                break;
+
+            case R.id.button23:
+                String modelid = et4.getText().toString();
+                int modid = Integer.valueOf(modelid);
+                DatabaseClass dbcc = new DatabaseClass(SqliteDatabase.this);
+                dbcc.open();
+                String donenmodel =  dbcc.modelidondur(modid);
+                dbcc.close();
+                Toast.makeText(SqliteDatabase.this,  donenmodel , Toast.LENGTH_SHORT).show();
+
+
+                break;
+
+
+            case R.id.button24:
+                String degerid = et4.getText().toString();
+                int degid = Integer.valueOf(degerid);
+                DatabaseClass dbccc = new DatabaseClass(SqliteDatabase.this);
+                dbccc.open();
+                String donendeger =  dbccc.degeridondur(degid);
+                dbccc.close();
+                Toast.makeText(SqliteDatabase.this,  donendeger , Toast.LENGTH_SHORT).show();
 
 
                 break;

@@ -26,9 +26,6 @@ public class DatabaseClass {
     private SQLiteDatabase sqlitedatabaseobjesi;
 
 
-
-
-
     public DatabaseClass(Context context) {
         this.context = context;
 
@@ -85,6 +82,49 @@ public class DatabaseClass {
         sqlitedatabaseobjesi.update(TABLENAME, CONV, ROWID+"="+duzenlenecek, null );
 
 
+    }
+
+    public String markayidondur(int markid) {
+        String[] kolonlar = new String[] {ROWID, ARABALAR,MODELLER,DEGERLER};
+        Cursor c  = sqlitedatabaseobjesi.query(TABLENAME,kolonlar, ROWID+"="+markid,null, null, null,  null );
+        if (c!=null) {
+            c.moveToFirst();
+            String donenmarka = c.getString(1);
+            return donenmarka;
+
+        }
+
+        return null;
+    }
+
+    public String modelidondur(int modid) {
+
+        String[] kolonlar = new String[] {ROWID, ARABALAR,MODELLER,DEGERLER};
+        Cursor c  = sqlitedatabaseobjesi.query(TABLENAME,kolonlar, ROWID+"="+modid,null, null, null,  null );
+        if (c!=null) {
+            c.moveToFirst();
+            String donenmodel = c.getString(2);
+            return donenmodel;
+
+        }
+
+        return null;
+
+    }
+
+    public String degeridondur(int degid) {
+
+
+        String[] kolonlar = new String[] {ROWID, ARABALAR,MODELLER,DEGERLER};
+        Cursor c  = sqlitedatabaseobjesi.query(TABLENAME,kolonlar, ROWID+"="+degid,null, null, null,  null );
+        if (c!=null) {
+            c.moveToFirst();
+            String donendeger = c.getString(3);
+            return donendeger;
+
+        }
+
+        return null;
     }
 
 
