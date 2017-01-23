@@ -75,6 +75,18 @@ public class DatabaseClass {
         sqlitedatabaseobjesi.delete(TABLENAME , ROWID+"="+silinecek , null);
     }
 
+    public void yenile(int duzenlenecek, String yeniaraba, String yenimodel, String yenideger) {
+
+        ContentValues CONV = new ContentValues();
+        CONV.put(ARABALAR, yeniaraba);
+        CONV.put(MODELLER, yenimodel);
+        CONV.put(DEGERLER, yenideger);
+
+        sqlitedatabaseobjesi.update(TABLENAME, CONV, ROWID+"="+duzenlenecek, null );
+
+
+    }
+
 
     private static class DbHelper extends SQLiteOpenHelper {
 

@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class SqliteDatabase  extends Activity implements View.OnClickListener{
 
     EditText et1, et2,et3, et4;
-    Button bt1, bt2,bt3;
+    Button bt1, bt2,bt3, bt4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class SqliteDatabase  extends Activity implements View.OnClickListener{
         bt1 = (Button)findViewById(R.id.button18);
         bt2 =(Button)findViewById(R.id.button19);
         bt3 =(Button)findViewById(R.id.button20);
+        bt4 =(Button)findViewById(R.id.button21);
 
         et1 = (EditText)findViewById(R.id.editText10);
         et2 = (EditText)findViewById(R.id.editText11);
@@ -43,6 +44,7 @@ public class SqliteDatabase  extends Activity implements View.OnClickListener{
         bt1.setOnClickListener(this);
         bt2.setOnClickListener(this);
         bt3.setOnClickListener(this);
+        bt4.setOnClickListener(this);
 
     }
 
@@ -82,6 +84,25 @@ public class SqliteDatabase  extends Activity implements View.OnClickListener{
                 databaseclass.sil(silinecek);
                 databaseclass.close();
                 Toast.makeText(SqliteDatabase.this,  silinecek + ".  Satır Başarı ile silindi", Toast.LENGTH_SHORT).show();
+
+
+                break;
+
+            case R.id.button21:
+
+                String duzenleencekuye = et4.getText().toString();
+                int duzenlenecek = Integer.valueOf(duzenleencekuye);
+                String yeniaraba = et1.getText().toString();
+                String yenimodel = et2.getText().toString();
+                String  yenideger = et3.getText().toString();
+
+                DatabaseClass dbclass = new DatabaseClass(SqliteDatabase.this);
+                dbclass.open();
+                dbclass.yenile(duzenlenecek, yeniaraba, yenimodel, yenideger);
+                dbclass.close();
+                Toast.makeText(SqliteDatabase.this,  duzenlenecek + ".  Satır Başarı ile Güncellendi", Toast.LENGTH_SHORT).show();
+
+
 
 
                 break;
