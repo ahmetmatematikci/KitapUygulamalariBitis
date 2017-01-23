@@ -196,6 +196,24 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".SqliteDatabase">
+            <intent-filter>
+                <action android:name="android.intent.action.SqliteDatabase" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".sqldatabasegoruntu">
+            <intent-filter>
+                <action android:name="android.intent.action.sqldatabasegoruntu" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+
 
 
 
