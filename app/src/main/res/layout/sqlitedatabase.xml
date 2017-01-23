@@ -77,4 +77,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button19" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+
+        android:ems="10"
+        android:id="@+id/editText13" />
+
+    <Button
+        android:text="Sil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button20" />
 </LinearLayout>

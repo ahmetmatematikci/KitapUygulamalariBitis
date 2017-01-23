@@ -17,8 +17,8 @@ import android.widget.Toast;
 
 public class SqliteDatabase  extends Activity implements View.OnClickListener{
 
-    EditText et1, et2,et3;
-    Button bt1, bt2;
+    EditText et1, et2,et3, et4;
+    Button bt1, bt2,bt3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +33,16 @@ public class SqliteDatabase  extends Activity implements View.OnClickListener{
     private void tanimlar() {
         bt1 = (Button)findViewById(R.id.button18);
         bt2 =(Button)findViewById(R.id.button19);
+        bt3 =(Button)findViewById(R.id.button20);
 
         et1 = (EditText)findViewById(R.id.editText10);
         et2 = (EditText)findViewById(R.id.editText11);
         et3 = (EditText)findViewById(R.id.editText12);
+        et4 = (EditText)findViewById(R.id.editText13);
 
         bt1.setOnClickListener(this);
         bt2.setOnClickListener(this);
+        bt3.setOnClickListener(this);
 
     }
 
@@ -67,6 +70,18 @@ public class SqliteDatabase  extends Activity implements View.OnClickListener{
 
                 Intent i = new Intent(SqliteDatabase.this, sqldatabasegoruntu.class);
                 startActivity(i);
+
+
+                break;
+
+            case R.id.button20:
+                String silinecekuye = et4.getText().toString();
+                int silinecek = Integer.valueOf(silinecekuye);
+                DatabaseClass databaseclass = new DatabaseClass(SqliteDatabase.this);
+                databaseclass.open();
+                databaseclass.sil(silinecek);
+                databaseclass.close();
+                Toast.makeText(SqliteDatabase.this,  silinecek + ".  Satır Başarı ile silindi", Toast.LENGTH_SHORT).show();
 
 
                 break;

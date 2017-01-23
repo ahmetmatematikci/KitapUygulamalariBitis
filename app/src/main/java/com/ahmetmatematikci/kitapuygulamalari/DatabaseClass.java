@@ -65,10 +65,14 @@ public class DatabaseClass {
 
         for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
             sonuc = sonuc + c.getString(idindexi) + "   " + c.getString(arabaindexi) + " " + c.getString(modelindexi)
-            + "  " + c.getString(degerindexi);
+            + "  " + c.getString(degerindexi) + "\n";
         }
         return sonuc ;
 
+    }
+
+    public void sil(int silinecek) {
+        sqlitedatabaseobjesi.delete(TABLENAME , ROWID+"="+silinecek , null);
     }
 
 
