@@ -8,6 +8,8 @@
 
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
 
 
 
@@ -180,6 +182,15 @@
         <activity android:name=".InternalHafiza">
             <intent-filter>
                 <action android:name="android.intent.action.InternalHafiza" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".ExternalHafiza">
+            <intent-filter>
+                <action android:name="android.intent.action.ExternalHafiza" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
