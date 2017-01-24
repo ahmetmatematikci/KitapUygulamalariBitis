@@ -27,8 +27,14 @@ public class FragmentOrnek extends Activity{
         liste1.setAdapter(adapter);
         liste1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
+                String isim = String.valueOf(parent.getItemAtPosition(i));
+                Bundle bundle = new Bundle();
+                bundle.putString("isim" ,isim);
+
+
                 FragmentB fragb = new FragmentB();
+                fragb.setArguments(bundle);
                 FragmentManager manager = getFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.add(R.id.layout6, fragb, "fragmentb" );
