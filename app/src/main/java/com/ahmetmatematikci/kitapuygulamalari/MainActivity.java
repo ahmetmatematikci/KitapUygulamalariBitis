@@ -15,7 +15,7 @@ public class MainActivity extends ListActivity {
 
     String[] sayfalar = {"CameraAPP", "SorCevap","KullaniciGirisi", "CustomButton","HareketAlgilayici","SharedPrefOrnek",
             "BasitWebTarayici", "TabHostOrnek","ViewDegistir", "StandartListView","CustomListView","ActivityHayatDongusu",
-                "InternalHafiza" , "ExternalHafiza","SqliteDatabase"};
+                "InternalHafiza" , "ExternalHafiza","SqliteDatabase", "ActivityFragment","FragmentOrnek"};
 
 
     @Override

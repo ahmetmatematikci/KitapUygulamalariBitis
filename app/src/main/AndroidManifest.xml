@@ -212,6 +212,23 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ActivityFragment">
+            <intent-filter>
+                <action android:name="android.intent.action.ActivityFragment" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".FragmentOrnek">
+            <intent-filter>
+                <action android:name="android.intent.action.FragmentOrnek" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
 
 
 
