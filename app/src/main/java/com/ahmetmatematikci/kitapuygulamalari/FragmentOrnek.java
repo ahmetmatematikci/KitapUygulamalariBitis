@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 /**
@@ -14,11 +15,41 @@ import android.widget.ListView;
  */
 
 public class FragmentOrnek extends Activity{
+    Button bt1, bt2;
+    FragmentB fragb;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragmentornek);
+
+        bt1 = (Button)findViewById(R.id.button25);
+        bt2 = (Button)findViewById(R.id.button26);
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.remove(fragb);
+                fragmentTransaction.commit();
+
+
+            }
+        });
+
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.detach(fragb);
+                fragmentTransaction.commit();
+
+            }
+        });
+
+
         ListView liste1 =(ListView)findViewById(R.id.listView2);
         String[] hayvanlar  = new String[] {"At", "Kaplan", "Fil", "Kedi", "At", "Kaplan", "Fil",
                 "Kedi", "At", "Kaplan", "Fil", "Kedi","At", "Kaplan", "Fil", "Kedi" };
@@ -33,12 +64,14 @@ public class FragmentOrnek extends Activity{
                 bundle.putString("isim" ,isim);
 
 
-                FragmentB fragb = new FragmentB();
+                fragb = new FragmentB();
                 fragb.setArguments(bundle);
                 FragmentManager manager = getFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.add(R.id.layout6, fragb, "fragmentb" );
+                transaction.addToBackStack(null);
                 transaction.commit();
+
 
 
             }

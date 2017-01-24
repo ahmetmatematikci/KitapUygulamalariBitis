@@ -69,8 +69,8 @@ public class FragmentB extends Fragment {
 
 
         }
-        flipper.setFlipInterval(2000);
-        flipper.startFlipping();
+        flipper.setFlipInterval(1000);
+             flipper.startFlipping();
 
     }
 
